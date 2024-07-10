@@ -59,7 +59,7 @@ void TcpServer::setThreadNum(int numThreads)
 void TcpServer::start()
 {
   if (started_.getAndSet(1) == 0)
-  {
+  { //threadInitCallback_ = nullptr, numThreads_ = 0;
     threadPool_->start(threadInitCallback_);
 
     assert(!acceptor_->listening());
